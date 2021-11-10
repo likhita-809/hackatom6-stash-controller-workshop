@@ -5,7 +5,7 @@ set -e
 
 # Set variables
 CFG_DIR=~/.simapp
-BUILD_CMD=./build/simd
+BUILD_CMD=./cosmos-sdk/build/simd
 VALIDATOR=alice
 CHAIN_ID=hackatom6-chain
 
@@ -67,10 +67,10 @@ $BUILD_CMD tx authz revoke $CONTROLLER_ADDRESS /cosmos.staking.v1beta1.MsgDelega
 $BUILD_CMD q authz grants $STASH_ADDRESS $CONTROLLER_ADDRESS --chain-id $CHAIN_ID
 
 # Revoke the authz for MsgUnbond
-$BUILD_CMD tx authz revoke $CONTROLLER_ADDRESS /cosmos.staking.v1beta1.MsgUnbond --from $STASH --keyring-backend test --chain-id $CHAIN_ID --broadcast-mode block -y
+$BUILD_CMD tx authz revoke $CONTROLLER_ADDRESS /cosmos.staking.v1beta1.MsgUndelegate --from $STASH --keyring-backend test --chain-id $CHAIN_ID --broadcast-mode block -y
 
 # Revoke the authz for MsgRedelegate
-$BUILD_CMD tx authz revoke $CONTROLLER_ADDRESS /cosmos.staking.v1beta1.MsgRedelegate --from $STASH --keyring-backend test --chain-id $CHAIN_ID --broadcast-mode block -y
+$BUILD_CMD tx authz revoke $CONTROLLER_ADDRESS /cosmos.staking.v1beta1.MsgBeginRedelegate --from $STASH --keyring-backend test --chain-id $CHAIN_ID --broadcast-mode block -y
 
 # Query all the authz grants authorized to CONTROLLER from STASH, which returns null since we revoked all the authorizations
 $BUILD_CMD q authz grants $STASH_ADDRESS $CONTROLLER_ADDRESS --chain-id $CHAIN_ID

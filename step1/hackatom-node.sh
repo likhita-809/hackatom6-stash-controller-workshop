@@ -3,6 +3,9 @@ set -e
 
 # This script is for running a simapp node. TODO add more details
 
+# Cleanup if there is any previously cloned cosmos-sdk repo
+rm -rf cosmos-sdk
+
 # Clone the SDK repo
 git clone https://github.com/cosmos/cosmos-sdk
 cd cosmos-sdk
