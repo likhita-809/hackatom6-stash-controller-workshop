@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-# This script is for setting up the stash and controller accounts.
+# This script is for setting up the stash and controller accounts, and sending
+# some txs from controller on behalf of stash. All commands are commented.
 
 # Set variables
 CFG_DIR=~/.simapp
