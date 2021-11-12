@@ -23,7 +23,6 @@ CFG_DIR=~/.simapp
 BUILD_CMD=./cosmos-sdk/build/simd
 VALIDATOR=alice
 CHAIN_ID=hackatom6-chain
-MIN_FEES=0.0000001stake
 
 # Cleanup previous installations, if any.
 rm -rf $CFG_DIR
@@ -39,6 +38,6 @@ $BUILD_CMD gentx $VALIDATOR 1000000000stake --keyring-backend test --chain-id $C
 $BUILD_CMD collect-gentxs
 
 # Run the node.
-$BUILD_CMD start --minimum-gas-prices $MIN_FEES
+$BUILD_CMD start --minimum-gas-prices 0.0000001stake
 
 # Leave the node running in a terminal. You can move on to step 2 now.
