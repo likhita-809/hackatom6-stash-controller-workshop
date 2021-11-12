@@ -32,7 +32,7 @@ rm -rf $CFG_DIR
 $BUILD_CMD keys add $VALIDATOR --keyring-backend test
 VALIDATOR_ADDRESS=$($BUILD_CMD keys show $VALIDATOR -a --keyring-backend test)
 
-# Initialize the genesis file. It is available under $CFGDIR/config/genesis.json.
+# Initialize the genesis file. It is available under $CFG_DIR/config/genesis.json.
 $BUILD_CMD init $VALIDATOR --chain-id $CHAIN_ID
 $BUILD_CMD add-genesis-account $VALIDATOR_ADDRESS 10000000000stake
 $BUILD_CMD gentx $VALIDATOR 1000000000stake --keyring-backend test --chain-id $CHAIN_ID
