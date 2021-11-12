@@ -1,2 +1,2 @@
-cosmos-sdk/**/*
-build
+step1/cosmos-sdk
+step2/*.json
