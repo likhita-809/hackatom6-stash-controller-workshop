@@ -103,4 +103,4 @@ $BUILD_CMD q authz grants $STASH_ADDRESS $CONTROLLER_ADDRESS --chain-id $CHAIN_I
 
 echo
 echo "Again try to exec MsgDelegate, it should fail because we revoked the authorization for it"
-$BUILD_CMD tx staking delegate $VALIDATOR_ADDRESS 42stake --from $STASH --keyring-backend test --chain-id $CHAIN_ID --generate-only> tx.json && $BUILD_CMD tx authz exec tx.json --from $CONTROLLER --keyring-backend test --chain-id $CHAIN_ID --broadcast-mode block --fees $MIN_FEES -y
+$BUILD_CMD tx staking delegate $VALIDATOR_ADDRESS 42stake --from $STASH --keyring-backend test --chain-id $CHAIN_ID --generate-only> tx.json && $BUILD_CMD tx authz exec tx.json --from $CONTROLLER --keyring-backend test --chain-id $CHAIN_ID --broadcast-mode block --fees $MIN_FEES --fee-account $STASH_ADDRESS -y
